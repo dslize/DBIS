@@ -77,7 +77,7 @@
 
 \hfill
 \begin{tabular}{|c|c|c|c|}\hline
-   1 & 2 & 3 & $\sum$\\\hline
+   \blattnummer.1 & \blattnummer.2 & \blattnummer.3 & $\sum$\\\hline
   	 \qquad/\p & \qquad/\pp & \qquad/\ppp & \qquad/\sump\\\hline % abhängig vom Übungsblatt
  \end{tabular}
 \hfill Korrigiert am:\underline{\hspace{3cm}}
@@ -86,25 +86,25 @@
 
 
 \aufgabe{1}{\p}
-\begin{figure}[H]
+\begin{figure}[h]
   \centering
-  \includegraphics[width=\textwidth]{a1.png}
+ \scalebox{.3301}{\includegraphics{a1.png}}
 \end{figure}\
-\newpage
 
 
 
 \aufgabe{2}{\pp}
-\begin{figure}[H]
+\begin{figure}[h]
   \centering
-%  \includegraphics{a2.png}
+  \includegraphics{a2.png}
 \end{figure}\
 
 
 
 
 
-\aufgabe{3}{\ppp}
+\aufgabe{3}{\ppp}\null
+\begin{adjustwidth}{20pt}{20pt}
 \textbf{Relationenschema R}
 \begin{adjustwidth}{20pt}{20pt}
 Sportverband(\underline{Kürzel}, Nation)\\
@@ -118,8 +118,8 @@ Torhüter(\underline{SID}, Name, Alter, Mannschaftskennzeichnung, Gegentore)\\
 SpieltGegen(\underline{Ergebnis}, \underline{Datum})\\
 AusgebildetVon(\underline{TID}, \underline{Bezeichnung}, Verbandskürzel)\\
 \end{adjustwidth}
-
-\textbf{Interrelationale Abhängigkeiten}
+\newpage
+\noindent\textbf{Interrelationale Abhängigkeiten}
 \begin{adjustwidth}{20pt}{20pt}
 Feldspieler[Mannschaftskennzeichnung] $\subseteq$ Mannschaft[Kennzeichnung]\\
 Torhüter[Mannschaftskennzeichnung] $\subseteq$ Mannschaft[Kennzeichnung]\\
@@ -128,7 +128,7 @@ Feldspieler[SID] $\subseteq$ Spieler[SID]\\
 Torhüter[SID] $\subseteq$ Spieler[SID]\\
 \ \\
 SpieltIn[SID] $\subseteq$ Feldspieler[SID] $\cup$ Torhüter[SID]\\
-Feldspieler[SID] $\cap$ Torhüter[SID] $= \o$
+Feldspieler[SID] $\cap$ Torhüter[SID] $= \o$\\
 SpieltGegen[Datum] $\subseteq$ Mannschaft[Kennzeichnung]\\
 SpieltGegen[Ergebnis] $\subseteq$ Mannschaft[Kennzeichnung]\\
 \ \\
@@ -139,6 +139,7 @@ Mannschaft[TID] $\subseteq$ Trainer[TID]\\
 BildetAus[TID] $\subseteq$ Trainer[TID]\\
 BildetAus[Kürzel] $\subseteq$ Sportverband[Kürzel]\\
 BildetAus[Bezeichnung] $\subseteq$ Lizenz[Bezeichnung]\\
+\end{adjustwidth}
 \end{adjustwidth}
 % --------
 \end{document}
