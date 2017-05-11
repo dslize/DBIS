@@ -1,0 +1,140 @@
+\documentclass[11pt, a4paper]{article}
+
+\usepackage{graphicx} 
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+\usepackage{changepage}
+\usepackage[onehalfspacing]{setspace}
+\usepackage{ragged2e}
+\usepackage{ amssymb, amsmath, amsthm, dsfont }
+\usepackage[width = 18cm, top = 2.5cm, bottom = 3cm]{geometry}
+\usepackage{extarrows}
+% --------- Variabel, auf jedem Blatt ändern!
+\newcommand{\blattnummer}{3}
+\newcommand{\datum}{11. Mai 2017}
+	% Punktezahlen & Summe
+\newcommand{\p}{6}
+\newcommand{\pp}{8}
+\newcommand{\ppp}{6}
+\newcommand{\pppp}{}
+\newcommand{\sump}{22}
+% --------- Macros
+
+\newcommand{\myTitleString} {}
+\newcommand{\myAuthorString} {}
+\newcommand{\mySubTitleString} {}
+\newcommand{\myDateString} {}
+
+\newcommand{\myTitle}[1] {\renewcommand {\myTitleString}{#1}}
+\newcommand{\mySubTitle}[1] {\renewcommand {\mySubTitleString}{#1}}
+\newcommand{\myAuthor}[1] {\renewcommand{\myAuthorString}		{#1}}
+\newcommand{\myDate}[1] {\renewcommand{\myDateString}{#1}}
+
+\newcommand{\makeMyTitle}
+{
+\pagestyle{fancy}
+\fancyhead[L]
+{
+\begin{tabular}{l}
+\myTitleString
+\\ \mySubTitleString 
+\\ \myDateString
+\end{tabular}
+} 			
+\fancyhead[C]{}
+\fancyhead[R]{\myAuthorString}
+\fancyfoot[C]{\thepage}
+}
+
+\setlength{\headheight}{45pt}
+
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+
+    % args: Aufgabennummer, erreichbare Punkte
+\newcommand{\aufgabe}[2] {\section*{Aufgabe \blattnummer.#1 (Punkte:\qquad/#2)}}
+\newcommand{\aufgabenteil}[1] {\textbf{(#1)}}
+% ---------
+%\setlength{\parindent}{0pt}
+\begin{document}
+
+\myTitle{\textsc{Datenbanken und Informationssysteme}}
+\mySubTitle{Übung \blattnummer}
+\myDate{\datum}
+\myAuthor
+{
+\begin{tabular}{l l}
+359109, &Michelle Milde\\
+356148, &Philipp Hochmann\\
+356092, &Daniel Schleiz
+\end{tabular}
+}
+\makeMyTitle
+
+\hfill
+\begin{tabular}{|c|c|c|c|}\hline
+   \blattnummer.1 & \blattnummer.2 & \blattnummer.3 & $\sum$\\\hline
+  	 \qquad/\p & \qquad/\pp & \qquad/\ppp & \qquad/\sump\\\hline % abhängig vom Übungsblatt
+ \end{tabular}
+\hfill Korrigiert am:\underline{\hspace{3cm}}
+\hfill
+\vspace*{30pt}
+
+
+\aufgabe{1}{\p}
+\begin{adjustwidth}{20pt}{20pt}
+
+\end{adjustwidth}
+
+
+
+\aufgabe{2}{\pp}
+\aufgabenteil{a}
+\begin{adjustwidth}{20pt}{20pt}
+
+\end{adjustwidth}
+\aufgabenteil{b}
+\begin{adjustwidth}{20pt}{20pt}
+
+\end{adjustwidth}
+\aufgabenteil{c}
+\begin{adjustwidth}{20pt}{20pt}
+
+\end{adjustwidth}
+\aufgabenteil{d}
+\begin{adjustwidth}{20pt}{20pt}
+
+\end{adjustwidth}
+\aufgabenteil{e}
+\begin{adjustwidth}{20pt}{20pt}
+
+\end{adjustwidth}
+\aufgabenteil{f}
+\begin{adjustwidth}{20pt}{20pt}
+
+\end{adjustwidth}
+
+
+\aufgabe{3}{\ppp}
+\aufgabenteil{a}
+\begin{adjustwidth}{20pt}{20pt}
+
+\end{adjustwidth}
+\aufgabenteil{b}
+\begin{adjustwidth}{20pt}{20pt}
+
+\end{adjustwidth}
+\aufgabenteil{c}
+\begin{adjustwidth}{20pt}{20pt}
+
+\end{adjustwidth}
+\aufgabenteil{d}
+\begin{adjustwidth}{20pt}{20pt}
+
+\end{adjustwidth}
+% --------
+\end{document}
