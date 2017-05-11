@@ -95,27 +95,27 @@
 \aufgabe{2}{\pp}
 \aufgabenteil{a}
 \begin{adjustwidth}{20pt}{20pt}
-
+$\pi_{\text{FName}}(\sigma_{\text{Erscheinungsjahr > 2005} \wedge \text{Genre=\"Horror\"}}(\text{Film}))$ 
 \end{adjustwidth}
 \aufgabenteil{b}
 \begin{adjustwidth}{20pt}{20pt}
-
+$\pi_{\text{SName}}(\text{Schauspieler}) \cup \pi_{\text{FName}}(\text{Film}) \cup \pi_{\text{Charakter}}(\text{Spielt})$
 \end{adjustwidth}
 \aufgabenteil{c}
 \begin{adjustwidth}{20pt}{20pt}
-
+$\pi_{\text{FID}}(\sigma_{\text{Genre=\"Komödie\"}}(\text{Film} \bowtie \sigma_{\text{SName=\"Charles Chaplin\"}}(\text{Schauspieler})$
 \end{adjustwidth}
 \aufgabenteil{d}
 \begin{adjustwidth}{20pt}{20pt}
-
+$\pi{\text{RName}}(\text{Regisseur} \bowtie \text{Dreht} \bowtie \sigma_{\text{FName=\"Batman\"}}(\text{Film}))$
 \end{adjustwidth}
 \aufgabenteil{e}
 \begin{adjustwidth}{20pt}{20pt}
-
+$\text{Film} \bowtie \text{Spielt} \bowtie \sigma_{\text{Name} \neq \text{\"Til Schweiger\"}}(\text{Schauspieler})$
 \end{adjustwidth}
 \aufgabenteil{f}
 \begin{adjustwidth}{20pt}{20pt}
-
+$pi_{\text{SName}}(\sigma_{\text{Er} = \text{Er}\prime}(\rho_{\text{Er} \leftarrow \text{Erscheinungsdatum}}(\text{Schauspieler} \bowtie \text{Spielt} \bowtie \text{Film}) \cross \rho_{\text{Er}\prime \larrow \text{Erscheinungsdatum}}(\text{Schauspieler} \bowtie \tex{Spielt} \bowtie \text{Film})))$
 \end{adjustwidth}
 
 
