@@ -17,7 +17,7 @@
 \newcommand{\pp}{8}
 \newcommand{\ppp}{6}
 \newcommand{\pppp}{}
-\newcommand{\sump}{22}
+\newcommand{\sump}{20}
 % --------- Macros
 
 \newcommand{\myTitleString} {}
@@ -86,16 +86,72 @@
 
 
 \aufgabe{1}{\p}
+\aufgabenteil{a}
 \begin{adjustwidth}{20pt}{20pt}
-
+\begin{tabular}{|c c|}\hline
+\multicolumn{2}{|c|}{$\pi_{\text{Name,Nummer}}(\text{Starter})$} \\\hline
+Name & Nummer \\\hline
+William Boing & 10 \\
+William Boing & 30 \\
+William Boing & 40 \\
+James Bond & 50 \\
+James Bond & 20 \\
+Herman Gram & 60 \\
+Herman Gram & 70 \\\hline
+\end{tabular}
 \end{adjustwidth}
-
+\aufgabenteil{b}
+\begin{adjustwidth}{20pt}{20pt}
+\begin{tabular}{|c c c c|}\hline
+\multicolumn{4}{|c|}{$\pi_{\text{Name,Nummer,Herzfrequenz,Distanz}}(\rho_{\text{Nummer$\leftarrow$Sieger,Wettkampf$\leftarrow$Name}}(\text{Wettkampf})\bowtie \text{Starter})$} \\\hline
+Name & Nummer & Herzfrequenz & Distanz \\\hline
+William Boing & 10 & 140 & 42 \\
+William Boing & 40 & 149 & 21 \\\hline
+\end{tabular}
+\end{adjustwidth}
+\aufgabenteil{c}
+\begin{adjustwidth}{20pt}{20pt}
+\begin{tabular}{|c c|}\hline
+\multicolumn{2}{|c|}{$\pi_{\text{Nummer,Sieger}}(\rho_{\text{NameWettkampf$\leftarrow$Name}}(\text{Wettkampf})\bowtie_{\text{NameWettkampf=Wettkampf}}\text{Starter})$} \\\hline
+Nummer & Sieger \\\hline
+10 & 10 \\
+60 & 70 \\
+30 & 60 \\
+40 & 40 \\
+70 & 20 \\\hline
+\end{tabular}
+\end{adjustwidth}
+\aufgabenteil{d}
+\begin{adjustwidth}{20pt}{20pt}
+\begin{tabular}{|c c|}\hline
+\multicolumn{2}{|c|}{$\pi_{\text{Alter,Nummer}}(\sigma_{\text{Distanz}=42}(\rho_{\text{Wettkampf$\leftarrow$Name}}(\text{Wettkampf}))\bowtie(\text{Läufer$\bowtie$Starter}))$} \\\hline
+Alter & Nummer \\\hline
+55 & 10 \\
+55 & 30 \\\hline
+\end{tabular}
+\end{adjustwidth}
+\aufgabenteil{e}
+\begin{adjustwidth}{20pt}{20pt}
+\begin{tabular}{|c c c|}\hline
+\multicolumn{3}{|c|}{$\pi_{\text{Name,Zeit,Distanz}}(\sigma_{\text{Alter}<12}(\text{Läufer})\bowtie\text{Starter}\bowtie\rho_{\text{Wettkampf$\leftarrow$Name}}(\text{Wettkampf}))$} \\\hline
+Name & Zeit & Distanz \\\hline
+Herman Gram & 4:29:06 & 21 \\
+Herman Gram & 3:43:11 & 21 \\\hline
+\end{tabular}
+\end{adjustwidth}
+\aufgabenteil{f}
+\begin{adjustwidth}{20pt}{20pt}
+\begin{tabular}{|c c|}\hline
+\multicolumn{2}{|c|}{$\pi_{\text{Name,Herzfrequenz}}(\rho_{\text{Nummer$\leftarrow$Distanz,Wettkampf$\leftarrow$Name}}(\text{Wettkampf})\bowtie\text{Starter}\bowtie\text{Läufer})$} \\\hline
+Name & Herzfrequenz \\\hline
+\end{tabular}
+\end{adjustwidth}
 
 
 \aufgabe{2}{\pp}
 \aufgabenteil{a}
 \begin{adjustwidth}{20pt}{20pt}
-$\pi_{\text{FName}}(\sigma_{\text{Erscheinungsjahr > 2005} \wedge \text{Genre=\"Horror\"}}(\text{Film}))$ 
+$\pi_{\text{FName}}(\sigma_{\text{Erscheinungsjahr $>$ 2005} \wedge \text{Genre="Horror"} }(\text{Film}))$ 
 \end{adjustwidth}
 \aufgabenteil{b}
 \begin{adjustwidth}{20pt}{20pt}
@@ -103,38 +159,40 @@ $\pi_{\text{SName}}(\text{Schauspieler}) \cup \pi_{\text{FName}}(\text{Film}) \c
 \end{adjustwidth}
 \aufgabenteil{c}
 \begin{adjustwidth}{20pt}{20pt}
-$\pi_{\text{FID}}(\sigma_{\text{Genre=\"Komödie\"}}(\text{Film} \bowtie \sigma_{\text{SName=\"Charles Chaplin\"}}(\text{Schauspieler})$
+$\pi_{\text{FID}}(\sigma_{\text{Genre="Komödie"} }(\text{Film} \bowtie \sigma_{\text{SName="Charles Chaplin"}}(\text{Schauspieler})$
 \end{adjustwidth}
 \aufgabenteil{d}
 \begin{adjustwidth}{20pt}{20pt}
-$\pi{\text{RName}}(\text{Regisseur} \bowtie \text{Dreht} \bowtie \sigma_{\text{FName=\"Batman\"}}(\text{Film}))$
+$\pi_{\text{RName}}(\text{Regisseur} \bowtie \text{Dreht} \bowtie \sigma_{\text{FName="Batman"}}(\text{Film}))$
 \end{adjustwidth}
 \aufgabenteil{e}
 \begin{adjustwidth}{20pt}{20pt}
-$\text{Film} \bowtie \text{Spielt} \bowtie \sigma_{\text{Name} \neq \text{\"Til Schweiger\"}}(\text{Schauspieler})$
+$\text{Film} \bowtie \text{Spielt} \bowtie \sigma_{\text{Name} \neq \text{"Til Schweiger"}}(\text{Schauspieler})$
 \end{adjustwidth}
 \aufgabenteil{f}
 \begin{adjustwidth}{20pt}{20pt}
-$pi_{\text{SName}}(\sigma_{\text{Er} = \text{Er}\prime}(\rho_{\text{Er} \leftarrow \text{Erscheinungsdatum}}(\text{Schauspieler} \bowtie \text{Spielt} \bowtie \text{Film}) \cross \rho_{\text{Er}\prime \larrow \text{Erscheinungsdatum}}(\text{Schauspieler} \bowtie \tex{Spielt} \bowtie \text{Film})))$
+$\pi_{\text{SName}}(\sigma_{\text{Er} = \text{Er}\prime}(\rho_{\text{Er} \leftarrow \text{Erscheinungsdatum}}(\text{Schauspieler} \bowtie \text{Spielt} \bowtie \text{Film}) \times \rho_{\text{Er}\prime \leftarrow \text{Erscheinungsdatum}}(\text{Schauspieler} \bowtie \text{Spielt} \bowtie \text{Film})))$
 \end{adjustwidth}
 
 
 \aufgabe{3}{\ppp}
+Kürze im Folgenden Sozialversicherungsnummer durch SVN ab.\\
 \aufgabenteil{a}
 \begin{adjustwidth}{20pt}{20pt}
-
+$\{ [w.\text{Bezeichnung}, w.\text{Adresse}]\ |\ w\in \text{Wahllokal } \wedge \ wk \in \text{Wahlkreis } \wedge\ w.\text{Wahlkreisnummer } = wk.\text{Wahlkreisnummer } \wedge wk.\text{Bezeichnung } =\text{'Aachen II'}\}$
 \end{adjustwidth}
 \aufgabenteil{b}
 \begin{adjustwidth}{20pt}{20pt}
-
+$\{ [wb.\text{Name}]\ |\ wb \in \text{Wahlberechtiger } \wedge\ wb.\text{Geburtsjahr } < 1990 \wedge\ wa \in \text{waehlt } \wedge\ wa.\text{SVN } = wb.\text{SVN } \wedge\ wa.\text{Briefwahl } = \text{'ja'}\}$
 \end{adjustwidth}
 \aufgabenteil{c}
 \begin{adjustwidth}{20pt}{20pt}
-
+$\{ [wb.\text{SVN}]\ |\ wb \in \text{Wahlberechtiger } \wedge\ ((wa \in \text{waehlt } \wedge\ wa.\text{SVN } = wb.\text{SVN } \wedge\ wa.\text{Wahlkreisnummer } \neq 42) \vee\ (\forall wae \in \text{waehlt }(wae.\text{SVN } \neq wb.\text{SVN })))\}$
 \end{adjustwidth}
 \aufgabenteil{d}
 \begin{adjustwidth}{20pt}{20pt}
-
+$\{ [wb.\text{Name}]\ |\ wb \in \text{Wahlberechtigter } \wedge\ wa \in \text{waehlt } \wedge\ wa.\text{SVN } = wb.\text{SVN } \wedge\ wae \in \text{waehlt } \wedge\ wae.\text{SVN } = wb.\text{SVN } \wedge\ wa.\text{Wahllokal } = wae.\text{Wahllokal } \wedge\
+    wa.\text{Wahljahr } \neq wae.\text{Wahljahr }\}$
 \end{adjustwidth}
 % --------
 \end{document}
