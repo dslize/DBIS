@@ -121,11 +121,52 @@ Gebe die IDs aller Patienten an, welche am oder vor dem 16.5.1987 geboren wurden
 \aufgabe{3}{\ppp}
 \aufgabenteil{a}
 \begin{adjustwidth}{20pt}{20pt}
-
+\begin{tt}
+CREATE TABLE Kunde\\
+(KDNummer DECIMAL (10) NOT NULL UNIQUE PRIMARY KEY,\\
+Name CHAR (20))
+\\ \ \\
+CREATE TABLE Mechaniker\\
+(eMail CHAR (20) NOT NULL UNIQUE PRIMARY KEY,\\
+Name CHAR (20),\\
+Adresse VARCHAR (50))
+\\ \ \\
+CREATE TABLE MechanikerTelNr\\
+(eMail CHAR (20) NOT NULL,\\
+TelNr DECIMAL (12) NOT NULL,\\
+PRIMARY KEY (eMail, TelNr),\\
+FOREIGN KEY (eMail) REFERENCES Mechaniker(eMail))
+\\ \ \\
+CREATE TABLE beauftragt\\
+(KDNummer DECIMAL (10),\\
+eMail CHAR (20),\\
+PRIMARY KEY (KDNummer, eMail),\\
+FOREIGN KEY (KDNummer) REFERENCES Kunde(KDNummer),\\
+FOREIGN KEY (eMail) REFERENCES Mechaniker(eMail))
+\end{tt}
 \end{adjustwidth}
 \aufgabenteil{b}
 \begin{adjustwidth}{20pt}{20pt}
-
+\begin{tt}
+ALTER TABLE Mechaniker\\
+DROP COLUMN Adresse,\\
+ADD Stadt CHAR (20),\\
+ADD Strasse CHAR (20),\\
+ADD PLZ DECIMAL (5)
+\\ \ \\
+CREATE TABLE Stammkunde\\
+(KDNummer DECIMAL (10) NOT NULL UNIQUE PRIMARY KEY,\\
+Dauer DECIMAL (4),\\
+FOREIGN KEY (KDNummer) REFERENCES Kunde(KDNummer))
+\\ \ \\
+CREATE TABLE Neu-Kunde\\
+(KDNummer DECIMAL (10) NOT NULL UNIQUE PRIMARY KEY,\\
+FOREIGN KEY (KDNummer) REFERENCES Kunde(KDNummer))
+\\ \ \\
+CREATE TABLE Online-Kunde\\
+(KDNummer DECIMAL (10) NOT NULL UNIQUE PRIMARY KEY,\\
+FOREIGN KEY (KDNummer) REFERENCES Kunde(KDNummer))
+\end{tt}
 \end{adjustwidth}
 % --------
 \end{document}
