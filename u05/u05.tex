@@ -132,8 +132,13 @@ Subquery $l$: Gibt eine Relation aus, die für jeden Kritiker, der mindestens 20
 
 \aufgabe{3}{\ppp}
 \begin{adjustwidth}{20pt}{20pt}
-
-
+\begin{tt}
+SELECT DISTINCT name, title, location, filename, pictures.timestamp, COUNT(commentID) AS commentcount\\
+FROM (pictures NATURAL JOIN users) \\LEFT JOIN comments ON pictures.pictureID=comments.pictureID\\
+WHERE current\_timestamp - '1 day'::interval <= pictures.timestamp AND current\_timestamp >= pictures.timestamp\\
+GROUP BY name, title, location, filename, pictures.timestamp\\
+ORDER BY pictures.timestamp DESC
+\end{tt}
 \end{adjustwidth}
 
 
