@@ -1,5 +1,6 @@
 \documentclass[11pt, a4paper]{article}
 
+\usepackage{german}
 \usepackage{graphicx} 
 \usepackage[utf8]{inputenc}
 \usepackage{fancyhdr}
@@ -119,11 +120,13 @@
 
 \aufgabe{2}{\pp}
 \begin{adjustwidth}{20pt}{20pt}
-
-
+Die Anfrage gibt Namen und durchschnittliche Anzahl Sterne der Filme aus. Die durchschnittliche Anzahl der Sterne eines Films errechnet sich aus seinen Rezensionen, wobei nur die Rezensionen der Kritiker, die mindestens 200 Rezensionen verfasst und dabei höchstens 5\% der Filme mit der besten Bewertung von 5 Sternen ausgezeichnet haben, berücksichtigt werden. Gibt es für einen Film keine Rezensionen, die den genannten Kriterien entsprechen, wird er nicht mit ausgegeben.\\ \ \\
+Die Aufgabenstellung würde so lauten:\\
+\glqq Erstellen Sie einen Query, der Namen und durchschnittliche Anzahl der Sterne aller Filme ausgibt. Es sollen bei der Ermittlung der durchschnittlichen Anzahl Sterne nur Rezensionen berücksichtigt werden, die von einem Kritiker stammen, der in höchstens 5\% seiner Kritiken mit der höchstmöglichen Anzahl Sterne vergeben hat, und der schon mindestens 200 Kritiken abgegeben hat. Gibt es für einen Film keine solchen Rezensionen, soll er nicht mit ausgegeben werden.\grqq\\ \ \\
+Subquery $m$: Gibt eine Relation aus, die für jeden Kritiker, der mindestens 200 Kritiken geschrieben hat, einmal seine ID und die genaue Anzahl seiner Kritiken enthält.\\
+Subquery $n$: Gibt eine Relation aus, die für jeden Kritiker, der mindestens eine Kritik geschrieben hat, einmal seine ID und die Anzahl der Kritiken, in denen er 5 Sterne vergeben hat, enthält.\\
+Subquery $l$: Gibt eine Relation aus, die für jeden Kritiker, der mindestens 200 Kritiken geschrieben hat, und dabei in höchstens 5\% der Rezensionen 5 Sterne vergeben hat, seine ID, die Anzahl seiner Rezensionen und die Anzahl seiner Rezensionen, in denen er 5 Sterne vergeben hat, enthält.
 \end{adjustwidth}
-
-
 
 
 
