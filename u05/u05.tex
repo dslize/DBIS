@@ -89,31 +89,82 @@
 \aufgabe{1}{\p}
 \aufgabenteil{a}
 \begin{adjustwidth}{20pt}{20pt}
-
+\begin{tt}
+SELECT name \\
+FROM medikament \\
+WHERE preis > 20 \\
+\end{tt}
 \end{adjustwidth}
 \aufgabenteil{b}
 \begin{adjustwidth}{20pt}{20pt}
-
+\begin{tt}
+SELECT name, arzt\_id \\
+FROM arzt A \\
+WHERE NOT EXISTS \\
+  (SELECT arzt \\
+   FROM behandlung \\
+   WHERE arzt = A.arzt\_id) \\
+\end{tt}
 \end{adjustwidth}
 \aufgabenteil{c}
 \begin{adjustwidth}{20pt}{20pt}
-
+\begin{tt}
+SELECT name, preis \\
+FROM medikament \\
+ORDER BY preis ASC \\
+\end{tt}
 \end{adjustwidth}
 \aufgabenteil{d}
 \begin{adjustwidth}{20pt}{20pt}
+\begin{tt}
+CREATE VIEW Behandelte\_Kunden AS \\
+  SELECT name \\
+  FROM patient P \\
+  WHERE EXISTS \\
+    (SELECT patient \\
+     FROM behandlung \\
+     WHERE patient = P.patient\_id) \\
 
+\noindent SELECT *
+FROM Behandelte\_Kunden
+\end{tt}
 \end{adjustwidth}
 \aufgabenteil{e}
 \begin{adjustwidth}{20pt}{20pt}
-
+\begin{tt}
+SELECT patient\_id \\
+FROM patient P \\
+INNER JOIN behandlung ON P.patient\_id = behandlung.patient \\
+GROUP BY patient\_id \\
+HAVING COUNT(*) >= ALL \\
+  (SELECT COUNT(patient\_id) \\
+   FROM patient P \\
+   INNER JOIN behandlung ON P.patient\_id = behandlung.patient \\
+   GROUP BY patient\_id) \\
+\end{tt}
 \end{adjustwidth}
 \aufgabenteil{f}
 \begin{adjustwidth}{20pt}{20pt}
-
+\begin{tt}
+SELECT name \\
+FROM medikament M \\
+WHERE EXISTS \\
+  (SELECT medikament \\
+   FROM behandlung \\
+   WHERE medikament = M.medikament\_id \\
+   GROUP BY medikament \\
+   HAVING COUNT(*) > 3) \\
+\end{tt}
 \end{adjustwidth}
 \aufgabenteil{g}
 \begin{adjustwidth}{20pt}{20pt}
-
+\begin{tt}
+SELECT name, COUNT(DISTINCT medikament) AS anzahlVerschiedenerMedikamente \\
+FROM arzt A JOIN behandlung B \\
+ON A.arzt\_id = B.arzt \\
+GROUP BY arzt \\
+ORDER BY name ASC \\
+\end{tt}
 \end{adjustwidth}
 
 
