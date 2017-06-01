@@ -11,7 +11,7 @@
 \usepackage[width = 18cm, top = 2.5cm, bottom = 3cm]{geometry}
 \usepackage{extarrows}
 % --------- Variabel, auf jedem Blatt ändern!
-\newcommand{\blattnummer}{5}
+\newcommand{\blattnummer}{6}
 \newcommand{\datum}{1. Juni 2017}
 	% Punktezahlen & Summe
 \newcommand{\p}{3}
@@ -89,7 +89,10 @@
 
 \aufgabe{1}{\p}
 \begin{adjustwidth}{20pt}{20pt}
-
+	Es gelte $\alpha \rightarrow \beta\gamma$ und $\gamma \rightarrow \delta\epsilon$. Mit $A_5$ (Dekomposition) gelten dann auch $\alpha \rightarrow \beta$ und $\alpha \rightarrow \gamma$.
+	Mit $A_3$ (Transitivität) gilt dann $\alpha \rightarrow \delta\epsilon$. Mit $A_5$ folgt daraus $\alpha \rightarrow \delta$. (Und $\alpha \rightarrow \epsilon$.)\\
+	Mit $A_4$ (Vereinigung) gilt dann auch $\alpha \rightarrow \beta\gamma$ und mit nochmaliger Anwendung von $A_4$ folgt $\alpha \rightarrow \beta\gamma\delta$, dies war zu zeigen. Somit
+	ist aufgrund der Korrektheit von $A_1 \text{ bis } A_6$ ebenfalls $A_7$ korrekt.
 \end{adjustwidth}
 
 
