@@ -57,6 +57,8 @@
   \array{#1}}
 \makeatother
 
+\newcommand{\rA}{\rightarrow}
+
     % args: Aufgabennummer, erreichbare Punkte
 \newcommand{\aufgabe}[2] {\section*{Aufgabe \blattnummer.#1 (Punkte:\qquad/#2)}}
 \newcommand{\aufgabenteil}[1] {\textbf{(#1)}}
@@ -144,15 +146,43 @@
 \aufgabe{5}{\ppppp}
 \aufgabenteil{a}
 \begin{adjustwidth}{20pt}{20pt}
-
+$R$ ist nicht in BCNF, da z.B. das Attribut $A$ kein Superschlüssel ist, es aber die FD $A \rA C$ gibt. Die Attributhülle von $A$ ist $\{A, C\}$, was nicht der Menge aller Attribute aus $R$ entspricht.
 \end{adjustwidth}
 \aufgabenteil{b}
 \begin{adjustwidth}{20pt}{20pt}
 
+\begin{enumerate}
+\item $Z$ enthalte:\\
+	$R_1=(\{A, B, C, D, E, F, G, H, I \},$\\
+	$\{A \rA C, B \rA A, DE \rA I, CI \rA GH, EI \rA AB, DB \rA C\})$\\
+
+\item Dekomposition entlang $A \rA C$ in $R_1$:\\
+	$\begin{aligned}
+	R_{12}&=(\{A, B, C, D, E, G, H, I\}, \{B \rA A, DE \rA I, EI \rA AB\})\\
+	R_{11}&=(\{A, C\}, \{A \rA C\})
+	\end{aligned}$\\
+	
+\item Dekomposition entlang $B \rA A$ in $R_{12}$:\\
+	$\begin{aligned}
+	R_{122}&=(\{B, D, E, G, H, I\}, \{DE \rA I\})\\
+	R_{121}&=(\{B, A\}, \{B \rA A\})\\
+	R_{11}&=(\{A, C\}, \{A \rA C\})
+	\end{aligned}$\\
+	
+\item Dekomposition entlang $DE \rA I$ in $R_{122}$:\\
+	$\begin{aligned}
+	R_{1222}&=(\{B, D, E, G, H\}, \emptyset)\\
+	R_{1221}&=(\{D, E, I\}, \{DE \rA I\})\\
+	R_{121}&=(\{B, A\}, \{B \rA A\})\\
+	R_{11}&=(\{A, C\}, \{A \rA C\})
+	\end{aligned}$\\
+
+\end{enumerate}
+Damit ist jede Relation in BCNF.
 \end{adjustwidth}
 \aufgabenteil{c}
 \begin{adjustwidth}{20pt}{20pt}
-
+Die Zerlegung war nicht abhängigkeitserhaltend, da z.B. die FD $EI \rA AB$ in keiner der aus der Zerlegung resultierenden Relationen besteht, jedoch in der Ursprungsrelation $R_1$ bestand.
 \end{adjustwidth}
 
 
