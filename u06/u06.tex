@@ -114,11 +114,42 @@
 \aufgabe{3}{\ppp}
 \aufgabenteil{a}
 \begin{adjustwidth}{20pt}{20pt}
-
+	Im Folgenden bezeichne $Erg$ die sich iterativ vergrößernde Attributhülle von $X$. In jedem Schritt wird zur Erweiterung von $Erg$ benutzte FD mittels der auf
+	dem Übungsblatt gegebenen Nummer notiert.
+	\begin{itemize}
+	\item $Erg \leftarrow \{ X\}$. (Entspringt aus trivialer FD $X \rA X$)
+	\item $Erg \leftarrow \{ X,A,P\}$. (5) (Da $\{ X\} \subseteq \{ X\}$)
+	\item $Erg \leftarrow \{ X,A,P,R\}$. (1) (Da $\{ A\} \subseteq \{ X,A,P\}$)
+	\item $Erg \leftarrow \{ X,A,P,R,Y\}$. (4) (Da $\{ P,R\} \subseteq \{ X,A,P,R\}$)
+	\end{itemize}
+	Da keine weiteren FDs zur Erweiterung von $Erg$ existieren, ist die Attributhülle von $X$ gegeben durch $\{ X,A,P,R,Y\}$.
 \end{adjustwidth}
 \aufgabenteil{b}
 \begin{adjustwidth}{20pt}{20pt}
-
+	Es existieren die Schlüsselkandidaten $\{ X,B,C\}$ und $\{ X,B,Q\}$. Zeige zunächst, dass $\{ X,B,C\}$ und $\{ X,B,Q\}$ Superschlüssel sind:  \\
+	Zeige hierzu zunächst, dass $\{ X,B,C\}$ Superschlüssel ist. Dies gilt gdw. die Attributhülle von $\{ X,B,C\}$ der Gesamtmenge der attribute entspricht. Berechne also wieder iterativ
+	die Attributhülle.
+	\begin{itemize}
+	\item $Erg \leftarrow \{ X,A,P,R,Y,B,C\}$. (mit Ergebnis aus \textbf{(a)} und trivialer FD $XBC \rA XBC$)
+	\item $Erg \leftarrow \{ X,A,P,R,Y,B,C,Q\}$. (2)
+	\item $Erg \leftarrow \{ X,A,P,R,Y,B,C,Q,Z\}$. (3)
+	\end{itemize}
+	Analog für $\{ X,B,Q\}$:
+	\begin{itemize}
+	\item $Erg \leftarrow \{ X,A,P,R,Y,B,Q\}$. (mit Ergebnis aus \textbf{(a)} und trivialer FD $XBQ \rA XBQ$)
+	\item $Erg \leftarrow \{ X,A,P,R,Y,B,Q,C,Z\}$. (3)
+	\end{itemize}
+	Da in beiden Fällen die Attributhülle der Menge aller Attribute im Schema entspricht, handelt es sich bei $\{ X,B,C\}$ und $\{ X,B,Q\}$ um Superschlüssel. Nun zur Minimalität
+	der beiden Schlüsselkandidaten:\\
+	Stelle zunächst fest, dass jeder Schlüsselkandidat $X$ enthalten muss, da $X$ lediglich auf der linken Seite, und damit ein
+	Schlüsselkandidat ohne $X$ kein Superschlüssel wäre, da $X$ nie auf der rechten Seite einer FD steht. Gleiches gilt für $B$. Jeder Schlüsselkandidat muss also mindestens
+	$B$ und $X$ enthalten. Schaue noch, ob $\{ B,X\}$ ein Superschlüssel ist. Mit Aufgabenteil \textbf{(a)} ergibt sich die Attributhülle $\{ X,A,P,R,Y,B\}$. Ohne $C$ oder $Q$
+	wird $Z$ nie ableitbar sein. Somit ist $\{ B,X\}$ kein Superschlüssel. Aus den beiden Beobachtungen folgt nun, dass $\{ X,B,C\}$ und $\{ X,B,Q\}$ minimal sind, da
+	jeder Schlüsselkandidat $B$ und $X$ enthalten muss, aber diese nicht genügen.\\ \ \\
+	Weiterhin existieren keine anderen Schlüsselkandidaten. Betrachtet man die Attributhülle\\ $\{ X,A,P,R,Y,B\}$ von $XB$, so fehlen lediglich noch die Attribute $C,Q,Z$, um
+	Superschlüssel zu sein. Würde man ein Attribut aus der Hülle von $XB$ hinzufügen, um einen Schlüsselkandidaten zu erzeugen, so würde dies sofort dem Minimalitätskriterium
+	widersprechen. Somit lässt sich $XB$ nur um $C$, $Q$, oder $Z$ ergänzen. Dabei ist $\{X,B,Z\}$ kein Superschlüssel und somit kein Schlüsselkandidat, weil z.B. $Q$
+	nicht in der Attributhülle dieser Menge liegt. Insgesamt folgt nun, dass die gegebenen Kandidaten die Einzigen sind.
 \end{adjustwidth}
 
 
@@ -126,19 +157,56 @@
 \aufgabe{4}{\pppp}
 \aufgabenteil{a}
 \begin{adjustwidth}{20pt}{20pt}
-
+	Das Relationenschema liegt in 1NF vor, da die Aufgabenstellung impliziert, dass keine mengenwertige Attribute vorhanden sind. Es liegt ebenfalls in 2NF vor, denn der einzige
+	Schlüsselkandidat ist $\kappa :=\{ B,D,G,F\}$. Jedes der Nichtschlüsselattribute ($A,C,E,H$) ist dabei voll funktional von $\kappa$ abhängig, da man einerseits mithilfe
+	des Dekompositionsaxioms und der FD $BDGF \rightarrow ACEH$ die entsprechende FD ableiten lässt, und man dabei jeweils auf der linken Seite kein Attribut weglassen kann. (Die FD
+	$H \rightarrow F$ hilft dabei nicht.)\\
+	Es liegt ebenfalls in 3NF vor, da die einzigen FDs, welche in $F^+$ liegen und auf der rechten Seite einen Nichtschlüssel haben, der Form $BDGF \rA Z$ sind, für $Z \in \{ A,C,E,H\}$.
+	Die Linke Seite ist dabei insbesondere Superschlüssel, da diese bereits Schlüsselkandidat ist und damit $X$ voll funktional abhängig von $\kappa$.
 \end{adjustwidth}
 \aufgabenteil{b}
 \begin{adjustwidth}{20pt}{20pt}
-
+	Das Relationenschema liegt in 1NF vor, da die Aufgabenstellung impliziert, dass keine mengenwertige Attribute vorhanden sind. Es liegt ebenfalls in 2NF vor. (Einziger
+	Schlüsselkandidat $\kappa :=\{ A,D,H\}$, gleiche Argumentation wie in \textbf{(a)}.) Auch in 3NF, gleiche Argumentation wie in \textbf{(a)} und offensichtlich
+	keine FDs zwischen Nichtschlüsseln.
 \end{adjustwidth}
 \aufgabenteil{c}
 \begin{adjustwidth}{20pt}{20pt}
-
+	Das Relationenschema liegt in 1NF vor, da die Aufgabenstellung impliziert, dass keine mengenwertige Attribute vorhanden sind. Auch in 2NF, da einziger Schlüsselkandidat mit
+	$\kappa := \{ C,D,E,G\}$. Jedes der Nichtschlüsselattribute ($A,B,F,H$) ist dabei voll funktional von $\kappa$ abhängig, da mittels Transitivitätsaxiom alle FDs $CDEG \rA
+	Z$ für $Z \in \{ A,B,F,H\}$ ableitbar sind und diese jeweils nicht linksreduzierbar sind.\\
+	Es liegt nicht in 3NF vor, da FDs zwischen Nichtschlüsselattributen vorliegen (z.B. $F \rA H$). Wandle also um mittels Synthesealgorithmus:\\
+	Für die kanonische Überdeckung muss nichts getan werden. (Weder links- noch rechtsreduzierbar, nichts vereinigbar.) Generiere nun für jede FD ein Relationenschema:
+	\begin{itemize}
+	\item $R_1=(\{ C,D,E,F,G\}, \{ CDEG \rA F\})$
+	\item $R_2=(\{ F,H\}, \{ F \rA H\})$
+	\item $R_3=(\{ A,H\}, \{ H \rA A\})$
+	\item $R_4=(\{ A,B\}, \{ A \rA B\})$
+	\end{itemize}
+	Nun enhält $R_1$ den Schlüsselkandidaten $\kappa$. Da zudem keine Attributmenge eines enstandenen Schemas in einem anderen Schema liegt, ist man hier fertig.
 \end{adjustwidth}
 \aufgabenteil{d}
 \begin{adjustwidth}{20pt}{20pt}
-
+	Das Relationenschema liegt in 1NF vor, da die Aufgabenstellung impliziert, dass keine mengenwertige Attribute vorhanden sind. Stelle
+	zunächst fest, dass der einzige Schlüsselkandidat $\kappa := \{ E,G\}$ ist: $\kappa$ ist Superschlüssel da die Attributhülle von $EG$ gerade $X$ ist (wegen $G \rA B$ und
+	$E \rA AF$ ist die Attributhülle zunächst $\{ E,G, B, A, F\}$, im nächsten Schritt mit $F \rA CDH$ ergibt sich $X$). $\kappa$ ist außerdem minimal, da man bei Weglassen
+	eines der Attribute ($E$ oder $G$) jeweils abgeleitete FDs verliert, es gilt z.B. weder $G \rA A$, noch $E \rA B$.\\
+	Das Schema liegt nicht in 2NF vor, da aufgrund gerade genannter Beispiele ein paar Attribute nicht voll funktional abhängig von $\kappa$ sind. Überführe nun in 2NF,
+	es ergeben sich folgende Schemata:
+	\begin{itemize}
+	\item $R_1=(\{ E,A,F,C,D,H\}, \{ E \rA AF, F \rA CDH\})$
+	\item $R_2=(\{ G,B\}, \{ G \rA B\})$
+	\item $R_3=(\{ E,G\}, \{\})$ \ (Hier FD einfügen? TODO)
+	\end{itemize}
+	Nun sind $R_2$ und $R_3$ in 3NF, da keine FDs zwischen Nichtschlüsselattributen vorhanden sind. (In $R_2$ ist offensichtlich $G$ Schlüssel, da sonst keine FDs auch Superschlüssel.)
+	$R_1$ ist aber nicht in 3NF, da mit $F \rA CDH$ eine FD zwischen Nichtschlüsselattributen besteht, da E der Superschlüssel ist. (Ergibt sich mit Transitivitätsaxiom.)
+	Wandle das Schema also in 3NF um:\\
+	Die kanonische Überdeckung ist bereits gegeben. Generiere also für jede FD ein Relationenschema:
+	\begin{itemize}
+	\item $R_{11} = (\{ E,A,F\}, \{ E \rA AF\})$
+	\item $R_{12} = (\{ F,C,D,H\}, \{ F \rA CDH\})$
+	\end{itemize}
+	Da nun $R_{11}$ den Schlüsselkandidaten $E$ enthält und keine Attributmenge eines enstandenen Schemas in einem anderen Schema liegt, ist man fertig.
 \end{adjustwidth}
 
 
