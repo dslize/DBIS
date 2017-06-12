@@ -102,11 +102,22 @@
 \aufgabe{2}{\pp}
 \aufgabenteil{a}
 \begin{adjustwidth}{20pt}{20pt}
-
+    (1) Die funktionale Abhängigkeit ist gültig, da alle vorkommenden Attributkombinationen von A und E zu eindeutigen restlichen Attributen führen. (Einzige Dopplung
+        bei $a_1,e_4$, jedoch sind die betroffenen Tupel gleich.) \\
+    (2) Die funktionale Abhängigkeit gilt nicht. Im vierten Tupel stehen $d_2,e_2$ mit $b_3,f_3$, im achten Tupel aber mit $b_4,f_3$. \\
+    (3) Die funktionale Abhängigkeit gilt nicht. Im sechsten Tupel steht $c_2$ mit $d_4, e_5$, im neunten Tupel aber mit $d_5, e_7$.\\
+    (4) Die funktionale Abhängigkeit ist gültig, da alle vorkommenden Attributkombinationen von A,C und F zu eindeutigen restlichen Attributen führen. (Einzige Dopplung
+        bei $a_1,c_8,f_9$, jedoch sind die betroffenen Tupel gleich.)
 \end{adjustwidth}
 \aufgabenteil{b}
 \begin{adjustwidth}{20pt}{20pt}
-
+	(1) Nein, da $E \rightarrow K$ als funktionale Abhängigkeit nicht impliziert, dass auch $K \rightarrow E$ gilt und sich diese FD nicht aus den Übrigen herleiten lässt (mit Hilfe des
+	Armstrong Kalküls, $E$ steht stets nur auf der linken Seite einer FD.) \\
+	(2) Ja, da die FD sich aus den gegebenen FDs (mit Hilfe des Armstrong Kalküls) ableiten lässt. \\ \indent$(E \rightarrow BD) \Rightarrow (E \rightarrow B) \Rightarrow (CE \rightarrow CB)
+	\Rightarrow (CE \rightarrow B)$. \\
+	(3) Ja, da die FD sich aus den gegebenen FDs (mit Hilfe des Armstrong Kalküls) ableiten lässt. \\ \indent$(E \rightarrow IK \text{und} E \rightarrow BD) \Rightarrow
+	(E \rightarrow IKBD) \Rightarrow (E \rightarrow BIK) \Rightarrow (AE \rightarrow ABIK, \text{ mit } A \rightarrow CL) \Rightarrow (AE \rightarrow CLBIK) \Rightarrow
+	(AEL \rightarrow CLBIK) \Rightarrow (AEL \rightarrow BCIK).$
 \end{adjustwidth}
 
 
