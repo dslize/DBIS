@@ -11,7 +11,7 @@
 \usepackage[width = 18cm, top = 2.5cm, bottom = 3cm]{geometry}
 \usepackage{extarrows}
 % --------- Variabel, auf jedem Blatt ändern!
-\newcommand{\blattnummer}{6}
+\newcommand{\blattnummer}{7}
 \newcommand{\datum}{18. Juni 2017}
 	% Punktezahlen & Summe
 \newcommand{\p}{10}
@@ -30,6 +30,14 @@
 \newcommand{\mySubTitle}[1] {\renewcommand {\mySubTitleString}{#1}}
 \newcommand{\myAuthor}[1] {\renewcommand{\myAuthorString}		{#1}}
 \newcommand{\myDate}[1] {\renewcommand{\myDateString}{#1}}
+
+\makeatletter
+\newcommand*{\centerfloat}{%
+  \parindent \z@
+  \leftskip \z@ \@plus 1fil \@minus \textwidth
+  \rightskip\leftskip
+  \parfillskip \z@skip}
+\makeatother
 
 \newcommand{\makeMyTitle}
 {
@@ -128,12 +136,14 @@ Da keine Attributmenge eines Schemas Teilmenge eines anderen Schemas ist, muss k
 \end{adjustwidth}
 
 
-
-\aufgabe{3}{\ppp}
-\begin{adjustwidth}{20pt}{20pt}
-
-\end{adjustwidth}
-
+\begin{figure}[h]
+\centerfloat
+\includegraphics[page=1,scale=0.9]{DBIS7_3.pdf}
+\end{figure}
+\begin{figure}[h]
+\centerfloat
+\includegraphics[page=2,scale=0.9]{DBIS7_3.pdf}
+\end{figure}
 
 % --------
 \end{document}
