@@ -123,8 +123,29 @@ Da keine Attributmenge eines Schemas Teilmenge eines anderen Schemas ist, muss k
 
 
 \aufgabe{2}{\pp}
+\aufgabenteil{a}
 \begin{adjustwidth}{20pt}{20pt}
-
+\begin{tt}
+SELECT DISTINCT arzt.name\\
+FROM arzt, patient, behandlung, medikament\\
+WHERE patient.name = 'Peter Parker'\\
+\null\qquad AND patient.patient\_id = behandlung.patient\\
+\null\qquad AND arzt.arzt\_id = behandlung.arzt\\
+\null\qquad AND behandlung.medikament = medikament.medikament\_id\\
+\null\qquad AND medikament.name = 'Palladium'\\
+\end{tt}
+\end{adjustwidth}
+\aufgabenteil{b}
+\begin{adjustwidth}{20pt}{20pt}
+\begin{center}
+\includegraphics[width=0.5\textwidth]{a2b.jpg}
+\end{center}
+\end{adjustwidth}
+\aufgabenteil{c}
+\begin{adjustwidth}{20pt}{20pt}
+\begin{center}
+\includegraphics[width=0.5\textwidth]{a2c.jpg}
+\end{center}
 \end{adjustwidth}
 
 
