@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="qualified">
+
+	<xs:complexType name="KandidatType">
+		<xs:sequence>
+			<xs:element name="Name" type="xs:string"/>
+			<xs:element name="Beruf" type="xs:string"/>
+			<xs:element name="Telefonnummer" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="svn" type="xs:integer" use="required"/>
+	</xs:complexType>
+	
+	<xs:complexType name="KandidatenstimmenType">
+		<xs:sequence>
+			<xs:element name="Kandidat" type="KandidatType"/>
+			<xs:element name="Anzahl" type="xs:integer"/>
+			<xs:element name="Ungueltig" type="xs:integer"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="ErststimmenType">
+		<xs:sequence>
+			<xs:element name="Kandidatenstimmen" type="KandidatenstimmenType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="ParteiType">
+		<xs:attribute name="kuerzel" type="xs:string" use="required"/>
+	</xs:complexType>
+
+	<xs:complexType name="ParteistimmenType">
+		<xs:sequence>
+			<xs:element name="Partei" type="ParteiType"/>
+			<xs:element name="Anzahl" type="xs:integer"/>
+			<xs:element name="Ungueltig" type="xs:integer"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="ZweitstimmenType">
+		<xs:sequence>
+			<xs:element name="Parteistimmen" type="ParteistimmenType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="WahlkreisType">
+		<xs:sequence>
+			<xs:element name="Bezeichnung" type="xs:string"/>
+			<xs:element name="Erststimmen" type="ErststimmenType"/>
+			<xs:element name="Zweitstimmen" type="ZweitstimmenType"/>
+		</xs:sequence>
+		<xs:attribute name="wahlkreisnummer" type="xs:integer" use="required"/>
+	</xs:complexType>
+	
+	<xs:complexType name="BundestagswahlType">
+		<xs:sequence>
+			<xs:element name="Datum" type="xs:date"/>
+			<xs:element name="Wahlkreis" type="WahlkreisType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:element name="Bundestagswahl" type="BundestagswahlType"/>	
+	
+</xs:schema>
