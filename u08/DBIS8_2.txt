@@ -1,0 +1,21 @@
+Aufgabe 8.2
+
+a)
+
+/Firma/Kunden//Telefonnummer/text()
+
+b)
+
+/Firma/Personal//Abteilung//Angestellter[Rolle/text() = "SekretaerIn" or Rolle/text() = "Sekretaer"]/EinstellungsDatum/text()
+
+c)
+
+count(/Firma/Personal/Abteilung[@bezeichnung="Marketing"]//Angestellter)
+
+d)
+
+/Firma/Auftraege//Auftrag[Auftraggeber/Kunde/text() = preceding::Kunden//Kunde[Name/text() = "Matthias Schroeder"]/@kundennummer]/@auftragsnummer
+
+e)
+
+/Firma/Personal//Abteilung//Angestellter[@personalnummer != "12938" and @personalnummer = following::Auftraege//Auftrag/Beauftragte[child::Angestellter/text() = "12938"]//Angestellter/text()]/@personalnummer
