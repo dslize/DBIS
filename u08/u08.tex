@@ -1,6 +1,7 @@
 \documentclass[11pt, a4paper]{article}
 
-\usepackage{german}
+\usepackage[ngerman]{babel}
+\usepackage{hyperref}
 \usepackage{graphicx} 
 \usepackage[utf8]{inputenc}
 \usepackage{fancyhdr}
@@ -169,12 +170,27 @@
 
 \aufgabe{3}{\ppp}
 \aufgabenteil{a}
-\begin{adjustwidth}{20pt}{20pt}
-
-\end{adjustwidth}
+\begin{figure}[h]
+\centerfloat
+\includegraphics[page=1,scale=0.5]{u08-3-a.png}
+\end{figure}
+\newpage
 \aufgabenteil{b}
 \begin{adjustwidth}{20pt}{20pt}
-
+$@$prefix rdf: $<$\url{http://www.w3.org/1999/02/22-rdf-syntax-ns\#}$>$ .\\
+$@$prefix foaf: $<$\url{http://xmlns.com/foaf/0.1/}$>$ .\\
+$@$prefix exp: $<$\url{http://example.org/the-expanse/}$>$ .\\
+\\ \ \\
+\shorthandon{"}
+$<\_>$ foaf:name ``Erde'' .\\
+$<\_>$ rdf:type exp:Planet .\\
+exp:Chrissi foaf:firstName ``Chrisjen'' .\\
+exp:Chrissi rdf:type foaf.person .\\
+exp:Chrissi foaf:lastName ``Avasarala'' .\\
+exp:Chrissi exp:worksFor exp:UN .\\
+exp:UN foaf:name ``Vereinte Nationen'' .\\
+exp:UN rdf:type exp:PoliticalOrganization .\\
+\shorthandoff{"}
 \end{adjustwidth}
 
 % --------

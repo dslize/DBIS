@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Firma>
+<Personal>
+	<Abteilung bezeichnung="Buchhaltung">
+		<Angestellter personalnummer="43865">
+			<Name>Angelica Mueller</Name>
+			<Telefonnummern>
+				<Telefonnummer>+49 555 43285761</Telefonnummer>
+			</Telefonnummern>
+			<EinstellungsDatum>07.04.2013</EinstellungsDatum>
+			<Rolle>BuchhalterIn</Rolle>
+			<Beaufsichtigt/>
+		</Angestellter>
+	...
+	</Abteilung>
+	<Abteilung bezeichnung="Marketing">
+		<Angestellter personalnummer="27109">
+			<Name>Thomas Schneider</Name>
+			<Telefonnummern>
+				<Telefonnummer>+49 555 90128745</Telefonnummer>
+			</Telefonnummern>
+			<EinstellungsDatum>01.09.2008</EinstellungsDatum>
+			<Rolle>Abteilungsleiter</Rolle>
+			<Beaufsichtigt>
+				<Angestellter personalnummer="31826">
+					<Name>Lisa Froehlich</Name>
+					<Telefonnummern>
+						<Telefonnummer>+49 555 73610283</Telefonnummer>
+					</Telefonnummern>
+					<EinstellungsDatum>15.11.2015</EinstellungsDatum>
+					<Rolle>SekretaerIn</Rolle>
+					<Beaufsichtigt/>
+				</Angestellter>
+			</Beaufsichtigt>
+		</Angestellter>
+	</Abteilung>
+	...
+</Personal>
+
+<Kunden>
+	<Kunde kundennummer = "K1837246">
+		<Name>Matthias Schroeder</Name>
+		<Telefonnummern>
+			<Telefonnummer>+49 555 23172639</Telefonnummer>
+			<Telefonnummer>+49 555 13182310</Telefonnummer>
+		</Telefonnummern>
+	</Kunde>
+	<Kunde kundennummer = "K3783440">
+		<Name> Bert Lange</Name>
+		<Telefonnummern>
+			<Telefonnummer>+49 555 88327204</Telefonnummer>
+			<Telefonnummer>+49 555 16575461</Telefonnummer>
+		</Telefonnummern>
+	</Kunde>
+	...
+</Kunden>
+
+<Auftraege>
+	<Auftrag auftragsnummer = "A1392784">
+		<Auftraggeber>
+			<Kunde>K1837246</Kunde>
+		</Auftraggeber>
+		<Beauftragte>
+			<Angestellter>33992</Angestellter>
+			<Angestellter>43865</Angestellter>
+		</Beauftragte>
+		<Auftragsdatum>23.02.2017</Auftragsdatum>
+		<Deadline>01.04.2017</Deadline>
+	</Auftrag>
+	<Auftrag auftragsnummer = "A0093747">
+		<Auftraggeber>
+			<Kunde>K5039127</Kunde>
+			<Kunde>K3783440</Kunde>
+			<Kunde>K7564029</Kunde>
+		</Auftraggeber>
+		<Beauftragte>
+			<Angestellter>27109</Angestellter>
+			<Angestellter>12938</Angestellter>
+			<Angestellter>31826</Angestellter>
+		</Beauftragte>
+		<Auftragsdatum>06.01.2017</Auftragsdatum>
+		<Deadline>15.09.2017</Deadline>
+	</Auftrag>
+	...
+</Auftraege>
+</Firma>
