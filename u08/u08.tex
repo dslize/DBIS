@@ -1,7 +1,6 @@
 \documentclass[11pt, a4paper]{article}
 
 \usepackage[ngerman]{babel}
-\usepackage{hyperref}
 \usepackage{graphicx} 
 \usepackage[utf8]{inputenc}
 \usepackage{fancyhdr}
@@ -13,6 +12,8 @@
 \usepackage{extarrows}
 \usepackage{listings,color}
 \usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+\usepackage[obeyspaces]{url}
+\usepackage{hyperref}
 % --------- Variabel, auf jedem Blatt ändern!
 \newcommand{\blattnummer}{8}
 \newcommand{\datum}{21. Juni 2017}
@@ -147,23 +148,27 @@
 \aufgabe{2}{\pp}
 \aufgabenteil{a}
 \begin{adjustwidth}{20pt}{20pt}
-
+\nolinkurl{/Firma/Kunden//Telefonnummer/text()}
 \end{adjustwidth}
 \aufgabenteil{b}
 \begin{adjustwidth}{20pt}{20pt}
-
+\nolinkurl{/Firma/Personal//Abteilung//Angestellter[Rolle/text() = "SekretaerIn"} \\
+\nolinkurl{or Rolle/text() = "Sekretaer"]/EinstellungsDatum/text()}
 \end{adjustwidth}
 \aufgabenteil{c}
 \begin{adjustwidth}{20pt}{20pt}
-
+\nolinkurl{count(/Firma/Personal/Abteilung[@bezeichnung="Marketing"]//Angestellter)}
 \end{adjustwidth}
 \aufgabenteil{d}
 \begin{adjustwidth}{20pt}{20pt}
-
+\nolinkurl{/Firma/Auftraege//Auftrag[Auftraggeber/Kunde/text() = preceding::Kunden//Kunde[Name/text() = "Matthias Schroeder"]/@kundennummer]/@auftragsnummer}
+%\nolinkurl{= "Matthias Schroeder"]/@kundennummer]/@auftragsnummer}
 \end{adjustwidth}
 \aufgabenteil{e}
 \begin{adjustwidth}{20pt}{20pt}
-
+\nolinkurl{/Firma/Personal//Abteilung//Angestellter[@personalnummer != "12938" and} \\
+\nolinkurl{@personalnummer = following::Auftraege//Auftrag/Beauftragte[child::Angestellter/text()} \\
+\nolinkurl{= "12938"]//Angestellter/text()]/@personalnummer}
 \end{adjustwidth}
 
 
@@ -172,7 +177,7 @@
 \aufgabenteil{a}
 \begin{figure}[h]
 \centerfloat
-\includegraphics[page=1,scale=0.5]{u08-3-a.png}
+\includegraphics[page=1,scale=0.5]{u08-3-a.PNG}
 \end{figure}
 \newpage
 \aufgabenteil{b}
