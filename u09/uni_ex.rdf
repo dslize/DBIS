@@ -1,0 +1,24 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema##> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix uni: <http://example.org/the-university/> .
+
+uni:stud1 rdf:type uni:Student .
+uni:stud1 foaf:name "Philipp Hochmann" .
+uni:prof1 rdf:type uni:Professor .
+uni:prof1 foaf:name "Matthias Jarke" .
+uni:wima1 rdf:type uni:WiMa .
+uni:wima1 foaf:name "Christian Samsel" .
+uni:hiwi1 rdf:type uni:HiWi .
+uni:hiwi1 foaf:name "Clemens Löbbert" .
+
+uni:dbis rdf:type uni:Vorlesung .
+uni:dbis_gü rdf:type uni:Übung .
+
+uni:stud1 uni:besucht uni:dbis .
+uni:stud1 uni:besucht uni:dbisgü .
+uni:stud1 uni:besucht uni:webscience .
+
+uni:prof1 uni:betreutProf uni:dbis .
+uni:prof1 uni:betreufProf uni:webscience .
+uni:wima1 uni:betreut uni:dbis_gü .

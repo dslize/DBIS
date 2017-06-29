@@ -1,0 +1,39 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema##> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix uni: <http://example.org/the-university/> .
+
+uni:Angehöriger rdf:type rdfs:Class . 
+
+uni:Student rdf:type rdfs:Class . 
+uni:Student rdfs:subClassOf uni:Angehöriger .
+uni:Mitarbeiter rdf:type rdfs:Class .
+uni:Mitarbeiter rdfs:subClassOf uni:Angehöriger .
+
+uni:Professor rdf:type rdfs:Class .
+uni:Professor rdfs:subClassOf uni:Mitarbeiter .
+uni:WiMa rdf:type rdfs:Class .
+uni:WiMa rdfs:subClassOf uni:Mitarbeiter .
+uni:HiWi rdf:type rdfs:Class .
+uni:HiWi rdfs:subClassOf uni:Mitarbeiter .
+
+uni:Veranstaltung rdf:type rdfs:Class .
+
+uni:besucht rdf:type rdf:Property .
+uni:besucht rdfs:domain uni:Student .
+uni:besucht rdfs:range uni:Veranstaltung .
+
+uni:Vorlesung rdf:type rdfs:Class .
+uni:Vorlesung rdfs:subClassOf uni:Veranstaltung .
+uni:Übung rdf:type rdfs:Class .
+uni:Übung rdfs:subClassOf uni:Veranstaltung .
+uni:Seminar rdf:type uni:Veranstaltung .
+uni:Seminar rdfs:subClassOf uni:Veranstaltung .
+
+uni:betreutProf rdf:type rdf:Property .
+uni:betreutProf rdfs:domain uni:Professor .
+uni:betreutProf rdfs:range uni:Veranstaltung .
+
+uni:betreut rdf:type rdf:Property .
+uni:betreut rdfs:domain uni:Mitarbeiter .
+uni:betreut rdfs:range uni:Übung .

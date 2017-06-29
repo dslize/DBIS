@@ -72,7 +72,7 @@
 \newcommand{\aufgabe}[2] {\section*{Aufgabe \blattnummer.#1 (Punkte:\qquad/#2)}}
 \newcommand{\aufgabenteil}[1] {\textbf{(#1)}}
 % ---------
-%\setlength{\parindent}{0pt}
+\setlength{\parindent}{0pt}
 \begin{document}
 
 \myTitle{\textsc{Datenbanken und Informationssysteme}}
@@ -119,7 +119,7 @@ Ergebnis:\\
  \hline
  1&39\\
  \hline
-\end{tabular}
+\end{tabular} \ \\
 \end{adjustwidth}
 
 \aufgabenteil{b}
@@ -145,7 +145,7 @@ Ergebnis:\\
 4 & http://dbpedia.org/resource/Lars\_Leese & 1.9558\\ 
 5 & http://dbpedia.org/resource/Jan\_Frodeno & 1.94\\ 
  \hline
-\end{tabular}
+\end{tabular} \ \\
 \end{adjustwidth}
 \aufgabenteil{c}
 \begin{adjustwidth}{20pt}{20pt}
@@ -168,7 +168,7 @@ Ergebnis:\\
 2 & http://dbpedia.org/resource/Beer\_cheese\_(spread) & Beer cheese\\ 
 3 & http://dbpedia.org/resource/Beer\_soup & Beer soup\\
  \hline
-\end{tabular}
+\end{tabular} \ \\
 \end{adjustwidth}
 
 
@@ -176,11 +176,78 @@ Ergebnis:\\
 \aufgabe{3}{\ppp}
 \aufgabenteil{a}
 \begin{adjustwidth}{20pt}{20pt}
+\begin{tt}
+$@$prefix rdf: $<$\nolinkurl{http://www.w3.org/1999/02/22-rdf-syntax-ns#}$>$ .\\
+$@$prefix rdfs: $<$\nolinkurl{http://www.w3.org/2000/01/rdf-schema##}$>$ .\\
+$@$prefix foaf: $<$\nolinkurl{http://xmlns.com/foaf/0.1/}$>$ .\\
+$@$prefix uni: $<$\nolinkurl{http://example.org/the-university/}$>$ .\\
+\ \\
+uni:Angehöriger rdf:type rdfs:Class . \\
 
+uni:Student rdf:type rdfs:Class . \\
+uni:Student rdfs:subClassOf uni:Angehöriger .\\
+uni:Mitarbeiter rdf:type rdfs:Class .\\
+uni:Mitarbeiter rdfs:subClassOf uni:Angehöriger .\\
+
+uni:Professor rdf:type rdfs:Class .\\
+uni:Professor rdfs:subClassOf uni:Mitarbeiter .\\
+uni:WiMa rdf:type rdfs:Class .\\
+uni:WiMa rdfs:subClassOf uni:Mitarbeiter .\\
+uni:HiWi rdf:type rdfs:Class .\\
+uni:HiWi rdfs:subClassOf uni:Mitarbeiter .\\
+
+uni:Veranstaltung rdf:type rdfs:Class .\\
+
+uni:besucht rdf:type rdf:Property .\\
+uni:besucht rdfs:domain uni:Student .\\
+uni:besucht rdfs:range uni:Veranstaltung .\\
+
+uni:Vorlesung rdf:type rdfs:Class .\\
+uni:Vorlesung rdfs:subClassOf uni:Veranstaltung .\\
+uni:Übung rdf:type rdfs:Class .\\
+uni:Übung rdfs:subClassOf uni:Veranstaltung .\\
+uni:Seminar rdf:type uni:Veranstaltung .\\
+uni:Seminar rdfs:subClassOf uni:Veranstaltung .\\
+
+uni:betreutProf rdf:type rdf:Property .\\
+uni:betreutProf rdfs:domain uni:Professor .\\
+uni:betreutProf rdfs:range uni:Veranstaltung .\\
+
+uni:betreut rdf:type rdf:Property .\\
+uni:betreut rdfs:domain uni:Mitarbeiter .\\
+uni:betreut rdfs:range uni:Übung .\\
+\end{tt}
 \end{adjustwidth}
 \aufgabenteil{b}
 \begin{adjustwidth}{20pt}{20pt}
+\begin{tt}
+$@$prefix rdf: $<$\nolinkurl{http://www.w3.org/1999/02/22-rdf-syntax-ns#}$>$ .\\
+$@$prefix rdfs: $<$\nolinkurl{http://www.w3.org/2000/01/rdf-schema##}$>$ .\\
+$@$prefix foaf: $<$\nolinkurl{http://xmlns.com/foaf/0.1/}$>$ .\\
+$@$prefix uni: $<$\nolinkurl{http://example.org/the-university/}$>$ .\\
+\ \\
+uni:stud1 rdf:type uni:Student .\\
+uni:stud1 foaf:name "Philipp Hochmann" .\\
+uni:prof1 rdf:type uni:Professor .\\
+uni:prof1 foaf:name "Matthias Jarke" .\\
+uni:wima1 rdf:type uni:WiMa .\\
+uni:wima1 foaf:name "Christian Samsel" .\\
+uni:hiwi1 rdf:type uni:HiWi .\\
+uni:hiwi1 foaf:name "Clemens Löbbert" .\\
 
+uni:dbis rdf:type uni:Vorlesung .\\
+uni:dbis\_gü rdf:type uni:Übung .\\
+
+uni:stud1 uni:besucht uni:dbis .\\
+uni:stud1 uni:besucht uni:dbisgü .\\
+uni:stud1 uni:besucht uni:webscience .\\
+
+uni:prof1 uni:betreutProf uni:dbis .\\
+uni:prof1 uni:betreufProf uni:webscience .\\
+uni:wima1 uni:betreut uni:dbis\_gü .\\
+
+
+\end{tt}
 \end{adjustwidth}
 
 % --------
