@@ -105,15 +105,70 @@
 \aufgabe{2}{\pp}
 \aufgabenteil{a}
 \begin{adjustwidth}{20pt}{20pt}
-
+\begin{tt}
+PREFIX dbo:  <http://dbpedia.org/ontology/>\\
+SELECT (COUNT(?match) AS ?c) WHERE \{\\
+\null\qquad\ ?match dbo:champion <http://dbpedia.org/resource/Tiger\_Woods> .\\
+\}
+\end{tt}
+\\ \ \\
+Ergebnis:\\
+\begin{tabular}{ |c|c| } 
+ \hline
+ &c\\ 
+ \hline
+ 1&39\\
+ \hline
+\end{tabular}
 \end{adjustwidth}
+
 \aufgabenteil{b}
 \begin{adjustwidth}{20pt}{20pt}
-
+\begin{tt}
+PREFIX dbo:  <http://dbpedia.org/ontology/>\\
+SELECT ?uri ?height WHERE \{\\
+\null\qquad\ ?uri dbo:birthPlace <http://dbpedia.org/resource/Cologne> .\\
+\null\qquad\ ?uri dbo:height ?height .\\
+\}\\
+ORDER BY DESC(?height)\\
+LIMIT 5
+\end{tt}
+\\ \ \\
+Ergebnis:\\
+\begin{tabular}{ |c|c|c| } 
+ \hline
+ & uri & height \\ 
+ \hline
+1 & http://dbpedia.org/resource/Yassin\_Idbihi & 2.08\\ 
+2 & http://dbpedia.org/resource/Uwe\_Krupp & 1.9812\\ 
+3 & http://dbpedia.org/resource/Thomas\_Kessler & 1.97\\ 
+4 & http://dbpedia.org/resource/Lars\_Leese & 1.9558\\ 
+5 & http://dbpedia.org/resource/Jan\_Frodeno & 1.94\\ 
+ \hline
+\end{tabular}
 \end{adjustwidth}
 \aufgabenteil{c}
 \begin{adjustwidth}{20pt}{20pt}
-
+\begin{tt}
+PREFIX dbo:  <http://dbpedia.org/ontology/>\\
+PREFIX dbp: <http://dbpedia.org/property/>\\
+SELECT ?uri WHERE \{\\
+\null\qquad\ ?uri dbo:ingredient <http://dbpedia.org/resource/Beer> .\\
+\null\qquad\ ?uri dbp:name ?name .\\
+\null\qquad\ FILTER CONTAINS(?name, "Beer")\\
+\}
+\end{tt}
+\\ \ \\
+Ergebnis:\\
+\begin{tabular}{ |c|c|c| } 
+ \hline
+ & uri & name \\ 
+ \hline
+1 & http://dbpedia.org/resource/Beer\_bread & Beer bread\\ 
+2 & http://dbpedia.org/resource/Beer\_cheese\_(spread) & Beer cheese\\ 
+3 & http://dbpedia.org/resource/Beer\_soup & Beer soup\\
+ \hline
+\end{tabular}
 \end{adjustwidth}
 
 

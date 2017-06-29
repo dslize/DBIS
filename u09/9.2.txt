@@ -1,0 +1,28 @@
+9.2)
+a)
+
+PREFIX dbo:  <http://dbpedia.org/ontology/>
+SELECT (COUNT(?match) AS ?c) WHERE {
+  ?match dbo:champion <http://dbpedia.org/resource/Tiger_Woods> .
+}
+
+b)
+
+PREFIX dbo:  <http://dbpedia.org/ontology/>
+SELECT ?uri ?height WHERE {
+	?uri dbo:birthPlace <http://dbpedia.org/resource/Cologne> .
+	?uri dbo:height ?height .
+}
+ORDER BY DESC(?height)
+LIMIT 5
+
+c)
+
+PREFIX dbo:  <http://dbpedia.org/ontology/>
+PREFIX dbp: <http://dbpedia.org/property/>
+
+SELECT ?uri WHERE {
+  ?uri dbo:ingredient <http://dbpedia.org/resource/Beer> .
+  ?uri dbp:name ?name .
+  FILTER CONTAINS(?name, "Beer")
+}
