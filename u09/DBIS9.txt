@@ -1,0 +1,35 @@
+Aufgabe 9.1)
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix exp: <http://example.org/the-expanse/> .
+
+exp:Marsianer rdf:type foaf:Person;
+              foaf:label "Martian"@eng, "Pomang"@BL.
+		   
+exp:Cocktail foaf:name "Gin Tonic";
+             exp:hatZutat _:b1, _:b2, _:b3.
+_:b1 foaf:name "Gin";
+     exp:Eigenschaft "gekühlt".
+_:b2 foaf:name "Tonic Water".
+_:b3 foaf:name "Zitronenschale".
+
+--Verwendung von Blank Nodes, da wir verschiedene Untereigenschaften und die dazu gehörenden Informationen
+ (hier Zutaten und deren Eigenschaften) einer Elterneigenschaft (hier 'hatZutat') zu-und unterordnen wollen
+  z.B. unterordnung der Zutat 'Gin', welche wieder eine eigene Eigenschaft ('gekühlt') besitzt.
+
+exp:Planet1 foaf:name "Mars";
+            rdf:type exp:Planet.
+exp:Planet2 foaf:name "Erde";
+            rdf:type exp:Planet.
+exp:Person1 rdf:type foaf:Person;
+            foaf:name "Bobbie Draper".
+			
+exp:Planet1 exp:imKrieg exp:Planet2.
+
+exp:Aussage rdf:type rdf:Statement;
+            rdf:subject exp:Planet1;
+            rdf:predicate exp:imKrieg;
+            rdf:object exp:Planet2;
+            exp:gesagtVon exp:Person1.
