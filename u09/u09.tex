@@ -99,7 +99,43 @@
 
 
 \aufgabe{1}{\p}
+\begin{adjustwidth}{20pt}{20pt}
+\begin{tt}
+$@$prefix rdf: <\nolinkurl{http://www.w3.org/1999/02/22-rdf-syntax-ns#}> .\\
+$@$prefix rdfs: <\nolinkurl{http://www.w3.org/2000/01/rdf-schema#}> .\\
+$@$prefix foaf: <\nolinkurl{http://xmlns.com/foaf/0.1/}> .\\
+$@$prefix exp: <\nolinkurl{http://example.org/the-expanse/}> .\\
+\ \\
+exp:Marsianer rdf:type foaf:Person;\\
+\null \qquad              foaf:label "Martian"@eng, "Pomang"@BL.\\
+		   
+exp:Cocktail foaf:name "Gin Tonic";\\
+\null \qquad             exp:hatZutat \_:b1, \_:b2, \_:b3.\\
+\_:b1 foaf:name "Gin";\\
+\null\qquad     exp:Eigenschaft "gekühlt".\\
+\_:b2 foaf:name "Tonic Water".\\
+\_:b3 foaf:name "Zitronenschale".\\
 
+\# Verwendung von Blank Nodes, da wir verschiedene Untereigenschaften und die dazu gehörenden Informationen
+\# (hier Zutaten und deren Eigenschaften) einer Elterneigenschaft (hier 'hatZutat') zu-und unterordnen wollen
+\# z.B. unterordnung der Zutat 'Gin', welche wieder eine eigene Eigenschaft ('gekühlt') besitzt.
+
+exp:Planet1 foaf:name "Mars";\\
+\null\qquad            rdf:type exp:Planet.\\
+exp:Planet2 foaf:name "Erde";\\
+\null\qquad            rdf:type exp:Planet.\\
+exp:Person1 rdf:type foaf:Person;\\
+\null\qquad            foaf:name "Bobbie Draper".\\
+\ \\		
+exp:Planet1 exp:imKrieg exp:Planet2.\\
+\ \\
+exp:Aussage rdf:type rdf:Statement;\\
+\null\qquad            rdf:subject exp:Planet1;\\
+\null\qquad            rdf:predicate exp:imKrieg;\\
+\null\qquad            rdf:object exp:Planet2;\\
+\null\qquad            exp:gesagtVon exp:Person1.
+\end{tt}
+\end{adjustwidth}
 
 
 \aufgabe{2}{\pp}
