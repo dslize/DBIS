@@ -1,0 +1,156 @@
+\documentclass[11pt, a4paper]{article}
+
+\usepackage[ngerman]{babel}
+\usepackage{graphicx} 
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+\usepackage{changepage}
+\usepackage[onehalfspacing]{setspace}
+\usepackage{ragged2e}
+\usepackage{ amssymb, amsmath, amsthm, dsfont }
+\usepackage[width = 18cm, top = 2.5cm, bottom = 3cm]{geometry}
+\usepackage{extarrows}
+\usepackage{listings,color}
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+\usepackage[obeyspaces]{url}
+\usepackage{hyperref}
+% --------- Variabel, auf jedem Blatt ändern!
+\newcommand{\blattnummer}{10}
+\newcommand{\datum}{6. Juli 2017}
+	% Punktezahlen & Summe
+\newcommand{\p}{7}
+\newcommand{\pp}{7}
+\newcommand{\ppp}{6}
+\newcommand{\pppp}{}
+\newcommand{\sump}{20}
+% --------- Macros
+
+\newcommand{\myTitleString} {}
+\newcommand{\myAuthorString} {}
+\newcommand{\mySubTitleString} {}
+\newcommand{\myDateString} {}
+
+\newcommand{\myTitle}[1] {\renewcommand {\myTitleString}{#1}}
+\newcommand{\mySubTitle}[1] {\renewcommand {\mySubTitleString}{#1}}
+\newcommand{\myAuthor}[1] {\renewcommand{\myAuthorString}		{#1}}
+\newcommand{\myDate}[1] {\renewcommand{\myDateString}{#1}}
+
+\makeatletter
+\newcommand*{\centerfloat}{%
+  \parindent \z@
+  \leftskip \z@ \@plus 1fil \@minus \textwidth
+  \rightskip\leftskip
+  \parfillskip \z@skip}
+\makeatother
+
+\newcommand{\makeMyTitle}
+{
+\pagestyle{fancy}
+\fancyhead[L]
+{
+\begin{tabular}{l}
+\myTitleString
+\\ \mySubTitleString 
+\\ \myDateString
+\end{tabular}
+} 			
+\fancyhead[C]{}
+\fancyhead[R]{\myAuthorString}
+\fancyfoot[C]{\thepage}
+}
+
+\setlength{\headheight}{45pt}
+
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+
+    % args: Aufgabennummer, erreichbare Punkte
+\newcommand{\aufgabe}[2] {\section*{Aufgabe \blattnummer.#1 (Punkte:\qquad/#2)}}
+\newcommand{\aufgabenteil}[1] {\textbf{(#1)}}
+% ---------
+\setlength{\parindent}{0pt}
+\begin{document}
+
+\myTitle{\textsc{Datenbanken und Informationssysteme}}
+\mySubTitle{Übung \blattnummer}
+\myDate{\datum}
+\myAuthor
+{
+\begin{tabular}{l l}
+359109, &Michelle Milde\\
+356148, &Philipp Hochmann\\
+356092, &Daniel Schleiz
+\end{tabular}
+}
+\makeMyTitle
+
+\hfill
+\begin{tabular}{|c|c|c|c|}\hline
+   1 & 2 & 3 & $\sum$\\\hline
+  	 \qquad/\p & \qquad/\pp & \qquad/\ppp & \qquad/\sump\\\hline % abhängig vom Übungsblatt
+ \end{tabular}
+\hfill Korrigiert am:\underline{\hspace{3cm}}
+\hfill
+\vspace*{30pt}
+
+
+\aufgabe{1}{\p}
+\aufgabenteil{a}
+\begin{adjustwidth}{20pt}{20pt}
+\begin{itemize}
+\item $conf(s_1)=\{ (w_3(x),r_2(x)),(w_2(y),w_3(y)),(w_3(y),r_2(y)), (w_3(z),w_2(z))\}$
+\item $conf(s_2)=\{ (r_3(x),w_1(x)),(r_2(y),w_3(y)),(r_2(y),w_1(y)),(w_3(y),w_2(y)),(w_3(y),w_1(y)),(w_2(y),w_1(y)),$\\ $(r_2(z),w_3(z)),(r_2(z),w_1(z)),(r_3(z),w_2(z)),
+	(r_3(z),w_1(z)),(w_3(z),w_2(z)),(w_3(z),w_1(z)),(w_2(z),w_1(z))\}$
+\end{itemize}
+\end{adjustwidth}
+\aufgabenteil{b}
+\begin{adjustwidth}{20pt}{20pt}
+\begin{itemize}
+\item $commit(s_1)=\{ t_2,t_3\}$. Somit besitzt der Konfliktgraph $G_1$ die Knoten $t_2$ und $t_3$. Da $(w_3(x),r_2(x))\in conf(s_1)$ und $(w_2(y),w_3(y))\in conf(s_1)$, existiert in $G_1$
+	eine Kante von $t_2$ zu $t_3$ und umgekehrt. Da somit $G_1$ einen Kreis besitzt, ist $s_1$ \textit{nicht konfliktserialisierbar}.
+\item $commit(s_2)=\{ t_1,t_2,t_3\}$. Somit besitzt der Konfliktgraph $G_2$ die Knoten $t_1,t_2$ und $t_3$. Da $(r_2(y),w_3(y))\in conf(s_2)$ und $(w_3(y),w_2(y))\in conf(s_2)$, existiert 
+	in $G_2$ eine Kante von $t_2$ zu $t_3$ und umgekehrt. Da somit $G_2$ einen Kreis enthält, ist $s_2$ \textit{nicht konfliktserialisierbar}.
+\end{itemize}
+\end{adjustwidth}
+
+
+\aufgabe{2}{\pp}
+\aufgabenteil{a}
+\begin{adjustwidth}{20pt}{20pt}
+
+\end{adjustwidth}
+\aufgabenteil{b}
+\begin{adjustwidth}{20pt}{20pt}
+
+\end{adjustwidth}
+\aufgabenteil{c}
+\begin{adjustwidth}{20pt}{20pt}
+
+\end{adjustwidth}
+\aufgabenteil{d}
+\begin{adjustwidth}{20pt}{20pt}
+
+\end{adjustwidth}
+
+
+
+\aufgabe{3}{\ppp}
+\aufgabenteil{a}
+\begin{adjustwidth}{20pt}{20pt}
+
+\end{adjustwidth}
+\aufgabenteil{b}
+\begin{adjustwidth}{20pt}{20pt}
+
+\end{adjustwidth}
+\aufgabenteil{c}
+\begin{adjustwidth}{20pt}{20pt}
+
+\end{adjustwidth}
+
+% --------
+\end{document}
