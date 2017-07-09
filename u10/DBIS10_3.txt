@@ -1,0 +1,23 @@
+DBIS - Übung 10
+Aufgabe 10.3
+
+a)
+Ausgabe für s1:
+
+wl3(x) wl2(y) wl3(z) w3(z) wu3(z) w3(x) wu3(x) c3 rl2(x) r2(x) ru2(x) w2(y) wu2(y) c2 rl1(y) wl1(z) w1(z) wu1(z) r1(y) ru1(y) c1
+
+b)
+Ausgabe für s2:
+
+Der Scheduler produziert einen Deadlock, weil zuerst eine Schreibsperre des Datenobjektes z für t1, eine Lesesperre
+des Datenobjektes x für t2 und eine Schreibsperre des Datenobjektes y für t3 gesetzt wird. Danach möchte t2 jedoch
+ebenfalls schreibend auf y zugreifen, t2 wartet also auf die Freigabe von y durch t3. t3 möchte lesend auf z 
+zugreifen, t3 muss also auf die Freigabe des Datenobjekes z durch t1 warten. t1 möchte schreibend auf x zugreifen,
+was jedoch auch nicht möglich ist, t1 wartet auf die Freigabe von x durch t2. 
+Jede der Transaktionen wartet also auf die Freigabe eines bestimmten Datenobjektes durch eine der anderen Transaktionen
+(gegenseitiges Warten), jedoch kann auch keine der Transaktionen die jeweils erwartete Sperre lösen.
+
+c)
+Ausgabe für s3:
+
+rl3(z) r3(z) wl1(y) w1(y) wu1(y) c1 rl3(x) r3(x) wl2(y) w2(y) wl3(z) w3(z) wu3(z) ru3(z) ru3(x) c3 wl2(x) w2(x) wu2(x) wu2(y) c2
