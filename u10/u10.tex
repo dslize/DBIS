@@ -119,21 +119,42 @@
 
 
 \aufgabe{2}{\pp}
+
+\begin{table}[h!]
+  \centering
+  \begin{tabular}{l|c|c|c}
+    $s_i$ & $RC$ & $ACA$ & $ST$\\
+    \hline
+    	1 & X & X & X\\
+	2 & $\surd$  & $\surd$  & $\surd$ \\
+	3 & $\surd$ & $\surd$ & X\\
+	4 & $\surd$ & X & X\\
+  \end{tabular}
+\end{table}
+
 \aufgabenteil{a}
 \begin{adjustwidth}{20pt}{20pt}
-
+$s_1$ ist nicht in $ACA$, da $t_2$ von $t_1$ liest, bevor $t_1$ committed wird.\\
+$s_1$ ist nicht in $ST$, da er nicht in $ACA$ ist.\\
+$s_1$ ist nicht in $RC$, da $t_2$ von $t_1$ liest, $t_2$ wird aber vor $t_2$ committed.\\
 \end{adjustwidth}
 \aufgabenteil{b}
 \begin{adjustwidth}{20pt}{20pt}
-
+$s_2$ ist in $ACA$. Zwar liest $t_2$ von $t_1$, aber $t_1$ wird vorher committed.\\
+$s_2$ ist in $ST$, da $s_2$ in $ACA$ ist und auf kein Objekt zweimal geschrieben wird.\\
+$s_2$ ist in $RC$, da er in $ACA$ ist.\\
 \end{adjustwidth}
 \aufgabenteil{c}
 \begin{adjustwidth}{20pt}{20pt}
-
+$s_3$ ist aus dem selben Grund wie $S_2$ in $ACA$.\\
+$s_3$ ist nicht in $ST$, da $t_2$ den von $t_1$ in $x$ geschriebenen Inhalt überschreibt.\\
+$s_3$ ist in $RC$, da er in $ACA$ ist.\\
 \end{adjustwidth}
 \aufgabenteil{d}
 \begin{adjustwidth}{20pt}{20pt}
-
+$s_4$ ist nicht in $ACA$, da $t_1$ von $t_2$ liest, bevor $t_2$ committed wird.\\
+$s_4$ ist nicht in $ST$, da er nicht in $ACA$ ist.\\
+$s_4$ ist in $RC$, da $t_2$ vor $t_1$ committed wird.\\
 \end{adjustwidth}
 
 
