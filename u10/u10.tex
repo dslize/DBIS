@@ -162,15 +162,23 @@ $s_4$ ist in $RC$, da $t_2$ vor $t_1$ committed wird.\\
 \aufgabe{3}{\ppp}
 \aufgabenteil{a}
 \begin{adjustwidth}{20pt}{20pt}
-
+Ausgabe für $s_1$:\\
+$wl_3(x) wl_2(y) wl_3(z) w_3(z) wu_3(z) w_3(x) wu_3(x) c_3 rl_2(x) r_2(x) ru_2(x) w_2(y) wu_2(y) c_2 rl_1(y) wl_1(z)$ \\ \ $ w_1(z) wu_1(z) r_1(y) ru_1(y) c_1$
 \end{adjustwidth}
 \aufgabenteil{b}
-\begin{adjustwidth}{20pt}{20pt}
-
+\begin{adjustwidth}{20pt}{20pt}Ausgabe für s2:
+Der Scheduler produziert einen Deadlock, weil zuerst eine Schreibsperre des Datenobjektes $z$ für$t_1$, eine Lesesperre
+des Datenobjektes $x$ für $t_2$ und eine Schreibsperre des Datenobjektes $y$ für $t_3$ gesetzt wird. Danach möchte $t_2$ jedoch
+ebenfalls schreibend auf $y$ zugreifen, $t_2$ wartet also auf die Freigabe von $y$ durch $t_3$. $t_3$ möchte lesend auf $z$ 
+zugreifen, $t_3$ muss also auf die Freigabe des Datenobjektes $z$ durch $t_1$ warten. $t_1$ möchte schreibend auf $x$ zugreifen,
+was jedoch auch nicht möglich ist, $t_1$ wartet auf die Freigabe von $x$ durch $t_2$. 
+Jede der Transaktionen wartet also auf die Freigabe eines bestimmten Datenobjektes durch eine der anderen Transaktionen
+(gegenseitiges Warten), jedoch kann auch keine der Transaktionen die jeweils erwartete Sperre lösen.
 \end{adjustwidth}
 \aufgabenteil{c}
 \begin{adjustwidth}{20pt}{20pt}
-
+Ausgabe für $s_3$:\\
+$rl_3(z) r_3(z) wl_1(y) w_1(y) wu_1(y) c_1 rl_3(x) r_3(x) wl_2(y) w_2(y) wl_3(z) w_3(z) wu_3(z) ru_3(z) ru_3(x) $ \\ \ $c_3 wl_2(x) w_2(x) wu_2(x) wu_2(y) c_2$
 \end{adjustwidth}
 
 % --------
